@@ -1,0 +1,17 @@
+# with reference to https://missing-semester-cn.github.io/2020/command-line/
+# the following line should be added to .bashrc, .zshrc, etc.
+# # Test if ~/.aliases exists and source it
+# if [ -f ~/.aliases ]; then
+#     source ~/.aliases
+# fi
+alias mv="mv -i"
+alias mkdir="mkdir -p"
+alias v="vim"
+alias ws_init="source devel/setup.zsh"
+alias pigcha_set="export http_proxy=http://127.0.0.1:15777 https_proxy=http://127.0.0.1:15777 && git config --global http.proxy http://127.0.0.1:15777 && git config --global https.proxy http://127.0.0.1:15777"
+alias pigcha_unset="unset http_proxy https_proxy && git config --global --unset http.proxy && git config --global --unset https.proxy"
+alias pigcha="sudo pigchacli && pigcha_set"
+alias ga="git add ."
+alias gc="git commit"
+alias ggraph="git log --graph --all --pretty=oneline --abbrev-commit"
+alias gs="git status"
