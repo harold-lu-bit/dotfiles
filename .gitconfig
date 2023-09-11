@@ -1,7 +1,3 @@
-[http]
-	proxy = http://127.0.0.1:15777
-[https]
-	proxy = http://127.0.0.1:15777
 [user]
 	email = harold_lu@foxmail.com
 	name = Harold Lu
@@ -9,3 +5,5 @@
 	editor = vim
 [init]
 	defaultBranch = main
+[credential]
+	helper = cache
