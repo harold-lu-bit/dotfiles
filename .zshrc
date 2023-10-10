@@ -82,7 +82,8 @@ autoload -U compinit && compinit
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -124,9 +125,12 @@ unset __conda_setup
 # <<< conda initialize <<<
 conda deactivate
 
-# 初始化ROS
-source /opt/ros/noetic/setup.zsh
-function cat_mk(){ catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"; }
+# 初始化ROS1
+# source /opt/ros/noetic/setup.zsh
+# function cat_mk(){ catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"; }
+
+# 初始化ROS2
+source /opt/ros/humble/setup.zsh
 
 # shortcut for learning CUDA
 # function ncc(){ nvcc -arch=sm_89 $1 -o ${1%.*};}
@@ -143,8 +147,8 @@ unsetopt beep
 eval "$(fasd --init auto)"
 
 # environment variables set by ics2022
-export NEMU_HOME=/home/harold/Courses/NJU-PA/ics2022/nemu
-export AM_HOME=/home/harold/Courses/NJU-PA/ics2022/abstract-machine
+# export NEMU_HOME=/home/harold/Courses/NJU-PA/ics2022/nemu
+# export AM_HOME=/home/harold/Courses/NJU-PA/ics2022/abstract-machine
 
 # tmux vi-style key bindings required
 export EDITOR="vim"
@@ -152,3 +156,10 @@ export EDITOR="vim"
 # ccache
 export PATH="/usr/lib/ccache:$PATH"
 export GCC_COLORS=true
+
+# make CapsLock behave like Ctrl:
+setxkbmap -option ctrl:nocaps
+# make short-pressed Ctrl behave like Escape:
+xcape -e 'Control_L=Escape'
+
+
