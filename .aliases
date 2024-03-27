@@ -15,3 +15,47 @@ alias ga="git add ."
 alias gc="git commit"
 alias ggraph="git log --graph --all --pretty=oneline --abbrev-commit"
 alias gs="git status"
+alias cmk_std="cmake -B build && cmake --build build -- -j\$(nproc)"
+alias ks="ls"
+function cat_mk(){ catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"; }
+
+# wsl proxy from windows
+hostip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
+export socks_hostport=7890
+export http_hostport=7890
+alias proxy_set='
+    export http_proxy="http://${hostip}:${http_hostport}"
+    export https_proxy="http://${hostip}:${http_hostport}"
+    export HTTP_PROXY="http://${hostip}:${http_hostport}"
+    export HTTPS_PROXY="http://${hostip}:${http_hostport}"
+    export all_proxy="socks5://${hostip}:${socks_hostport}"
+    export ALL_PROXY="socks5://${hostip}:${socks_hostport}"
+'
+alias proxy_unset='
+    unset http_proxy
+    unset https_proxy
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+    unset all_proxy
+    unset ALL_PROXY
+'
+alias proxy_echo='
+    echo $http_proxy
+    echo $https_proxy
+    echo $HTTP_PROXY
+    echo $HTTPS_PROXY
+    echo $all_proxy
+    echo $ALL_PROXY
+'
+
+function rosrc() {
+    if [ -d "devel" ]; then
+        source devel/setup.zsh
+    elif [ -d "install_isolated" ]; then
+        source install_isolated/setup.zsh
+    elif [ -d "install" ]; then
+        source install/setup.zsh
+    else
+        echo "No 'devel', 'install_isolated', or 'install' directory found."
+    fi
+}

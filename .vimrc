@@ -19,7 +19,7 @@ set smartcase          " Do smart case matching
 set incsearch          " Incremental search
 "set autowrite          " Automatically save before commands like :next and :make
 set hidden             " Hide buffers when they are abandoned
-set mouse+=a            " Enable mouse usage (all modes)
+" set mouse+=a            " Enable mouse usage (all modes)
 
 "setlocal noswapfile " 不要生成swap文件
 set bufhidden=hide " 当buffer被丢弃的时候隐藏它
@@ -67,3 +67,6 @@ nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" 设置.laucnh的语法高亮为.xml
+au BufNewfile,BufRead *.launch set filetype=xml

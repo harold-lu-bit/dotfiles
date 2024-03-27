@@ -126,11 +126,10 @@ unset __conda_setup
 conda deactivate
 
 # 初始化ROS1
-# source /opt/ros/noetic/setup.zsh
-# function cat_mk(){ catkin_make -DCATKIN_WHITELIST_PACKAGES="$1"; }
+source /opt/ros/noetic/setup.zsh
 
 # 初始化ROS2
-source /opt/ros/humble/setup.zsh
+# source /opt/ros/humble/setup.zsh
 
 # shortcut for learning CUDA
 # function ncc(){ nvcc -arch=sm_89 $1 -o ${1%.*};}
@@ -146,10 +145,6 @@ unsetopt beep
 # 开启fasd
 eval "$(fasd --init auto)"
 
-# environment variables set by ics2022
-# export NEMU_HOME=/home/harold/Courses/NJU-PA/ics2022/nemu
-# export AM_HOME=/home/harold/Courses/NJU-PA/ics2022/abstract-machine
-
 # tmux vi-style key bindings required
 export EDITOR="vim"
 
@@ -158,8 +153,8 @@ export PATH="/usr/lib/ccache:$PATH"
 export GCC_COLORS=true
 
 # make CapsLock behave like Ctrl:
-setxkbmap -option ctrl:nocaps
+# setxkbmap -option ctrl:nocaps
 # make short-pressed Ctrl behave like Escape:
-xcape -e 'Control_L=Escape'
+# xcape -e 'Control_L=Escape'
 
-
+export PATH="/home/harold/.local/bin:$PATH"
